@@ -3,7 +3,7 @@ name: API_CI
 on:
   push:
     paths:
-    - "./api/**"
+    - "api/**"
     - ".github/workflows/api-ci.yml"
 
 defaults:
