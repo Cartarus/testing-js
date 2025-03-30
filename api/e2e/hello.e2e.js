@@ -7,11 +7,11 @@ describe('Hello endpoint', () => {
 
   beforeAll(() => {
     app = createApp();
-    server = app.listen(3002);
+    server = app.listen(3001);
   });
 
   afterAll(async () => {
-    await server.closeServer();
+    await server.close(); // Change from closeServer() to close()
   });
 
   describe('test for [GET] / ', () => {

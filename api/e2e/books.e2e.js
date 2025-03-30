@@ -10,11 +10,12 @@ describe('Test for books', () => {
   let app = null;
   let server = null;
   let dataBase = null;
+  let client = null;
 
   beforeAll(async () => {
     app = createApp();
     server = app.listen(3001);
-    const client = new MongoClient(MONGO_URI, {
+    client = new MongoClient(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -25,8 +26,9 @@ describe('Test for books', () => {
   });
 
   afterAll(async () => {
-    await server.closeServer();
+    await server.close(); // Use close() instead of closeServer()
     await dataBase.dropDatabase();
+    await client.close(); // Close the MongoDB connection
   });
 
   describe('test for [GET] /api/v1/books ', () => {
