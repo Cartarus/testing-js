@@ -25,7 +25,7 @@ describe('Test for books', () => {
   });
 
   afterAll(async () => {
-    await server.close();
+    await server.closeServer();
     await dataBase.dropDatabase();
   });
 

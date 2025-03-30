@@ -10,11 +10,9 @@ describe('Hello endpoint', () => {
     server = app.listen(3002);
   });
 
-  afterAll(async () => new Promise((resolve) => {
-    server.close(() => {
-      resolve();
-    });
-  }));
+  afterAll(async () => {
+    await server.closeServer();
+  });
 
   describe('test for [GET] / ', () => {
     test('should return "Hello world"', () => request(app)
