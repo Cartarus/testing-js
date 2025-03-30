@@ -22,10 +22,10 @@ jobs:
         with:
           node-version: 18
           cache: "npm"
-          cache-dependency-path: .api/package-lock.json
+          cache-dependency-path: ./api/package-lock.json
 
       - name: instal dependecies
         run: npm install
 
       - name: Run tests
-        run: npm test
+        run: npm run test
